@@ -1,0 +1,149 @@
+"Window": {
+	backgroundColor: "#fff",
+	layout: "vertical",
+	borderWidth: 2, //
+	borderColor: "yellow" //
+}
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "green", //
+	font: {
+		fontSize: 20,
+		fontFamily: 'Helvetica Neue'
+	},
+	textAlign: 'center'
+}
+
+".get_node_window": {
+	backgroundColor: "#ccc",
+	borderWidth: 2, //
+	borderColor: "green" //
+}
+".registration_window": {
+	backgroundColor: "orange"
+}
+".profile_window": {
+	backgroundColor: "red"
+}
+//ALL TABS
+
+'.fieldHolder': {
+	//width: Ti.UI.FILL,
+	//height: 30,
+	height: Ti.UI.SIZE,
+	layout: 'vertical',
+	borderWidth: 2,
+	borderColor: 'red'
+}
+
+'.fieldInput': {
+	width: 180,
+	borderWidth: 1,
+	borderColor: '#666',
+	borderRadius: 8,
+	//right: 5,
+	color: "#eee",
+	autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE,
+	textAlign: "center",
+	bottom: 10
+}
+
+Button: {
+	height: 28,
+	color: '#aaa',
+	backgroundColor: '#ddd',
+	borderRadius:5,
+	borderWidth:1,
+	borderColor:'red',
+	backgroundDisabledColor: "#666",
+	width: 200,
+	bottom: 35
+}
+
+'.nodetitle': {
+	color: "red",
+	size: 14,
+}
+
+'.nodebody': {
+	color: 'yellow',
+	size: 11,
+	
+}
+//REGISTRATION AND LOGIN TAB
+
+"#logo": {
+	top: 20,
+	image:'/titanium_logo.jpg',
+	height: 20,
+}
+
+"#email": {
+	keyboardType: Ti.UI.KEYBOARD_EMAIL,
+	hintText: "email"
+}
+
+"#status": {
+	color: 'red'
+}
+
+"#username": {
+	hintText: "username"	
+}
+
+"#firstname": {
+	hintText: "firstname"
+	
+}
+"#lastname": {
+	hintText: "lastname"
+	
+}
+"#city": {
+	hintText: "city"
+	
+}
+'#password': {
+	hintText: "password"	
+}
+
+'#loginButton': {
+	color: 'green',
+	backgroundColor: 'yellow',
+}
+
+/*
+'#statusLabel': {
+	height: 30,
+	width: '100%',
+	textAlign: 'center'
+}
+
+
+'.fieldLabel': {
+	width: 100,
+	left: 10,
+	color: "#bbb",
+	textAlign: "center" //
+}
+*/
+
+
+//NODE TAB
+
+// title field, comment form input, 
+
+".comment": {
+	width: 200,
+	height: 120,
+	hintText: 'Post your comment (max 144)',
+	borderWidth: 2,
+	borderColor: 'brown',
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	maxLength: 144,
+	bottom: 10,
+	top: 10,
+}
+
+//VIEWS TAB

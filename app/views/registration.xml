@@ -1,0 +1,18 @@
+<Alloy>
+	<Tab id="registrationTab" title="REGISTRATION TAB">
+		<Window id="registrationWindow" title="registration" class="registration_window">
+				<Label>registration page</Label>
+		<ImageView id="logo" />
+		<View class="fieldHolder">
+			<TextField class="fieldInput" id="username"/>
+			<TextField class="fieldInput" id="password" passwordMask="true"/>
+			<TextField class="fieldInput" id="email"/>
+			<Label id="status" />
+		</View>
+		
+		<Button id="registerButton" onClick="clickRegister">Register</Button>
+		<Button id="loginButton" onClick="clickLogin">Login</Button>
+		<Button id="logoutButton" onClick="clickLogout">Logout</Button>
+		</Window>		
+	</Tab>
+</Alloy>

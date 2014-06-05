@@ -1,0 +1,5 @@
+<Alloy>
+	<TabGroup id="maintabgroup">
+		<Require src="registration" />
+	</TabGroup>
+</Alloy>
