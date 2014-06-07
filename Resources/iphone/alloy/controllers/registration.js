@@ -26,12 +26,13 @@ function Controller() {
         }
     }
     function clickRegister() {
-        if (!$.username.value || !$.email.value) {
+        if (!$.username.value || !$.password.value || !$.email.value) {
             alert("please provide a name, email and password");
             return;
         }
         var user = {
             name: $.username.value,
+            pass: $.password.value,
             mail: $.email.value
         };
         drupal.createAccount(user, function(response) {
@@ -79,7 +80,7 @@ function Controller() {
         id: "registrationWindow",
         title: "registration"
     });
-    $.__views.__alloyId2 = Ti.UI.createLabel({
+    $.__views.__alloyId3 = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "green",
@@ -89,9 +90,9 @@ function Controller() {
         },
         textAlign: "center",
         text: "registration page",
-        id: "__alloyId2"
+        id: "__alloyId3"
     });
-    $.__views.registrationWindow.add($.__views.__alloyId2);
+    $.__views.registrationWindow.add($.__views.__alloyId3);
     $.__views.logo = Ti.UI.createImageView({
         top: 20,
         image: "/titanium_logo.jpg",
@@ -99,14 +100,14 @@ function Controller() {
         id: "logo"
     });
     $.__views.registrationWindow.add($.__views.logo);
-    $.__views.__alloyId3 = Ti.UI.createView({
+    $.__views.__alloyId4 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
         borderWidth: 2,
         borderColor: "red",
-        id: "__alloyId3"
+        id: "__alloyId4"
     });
-    $.__views.registrationWindow.add($.__views.__alloyId3);
+    $.__views.registrationWindow.add($.__views.__alloyId4);
     $.__views.username = Ti.UI.createTextField({
         width: 180,
         borderWidth: 1,
@@ -119,7 +120,7 @@ function Controller() {
         hintText: "username",
         id: "username"
     });
-    $.__views.__alloyId3.add($.__views.username);
+    $.__views.__alloyId4.add($.__views.username);
     $.__views.password = Ti.UI.createTextField({
         width: 180,
         borderWidth: 1,
@@ -133,7 +134,7 @@ function Controller() {
         id: "password",
         passwordMask: "true"
     });
-    $.__views.__alloyId3.add($.__views.password);
+    $.__views.__alloyId4.add($.__views.password);
     $.__views.email = Ti.UI.createTextField({
         width: 180,
         borderWidth: 1,
@@ -147,7 +148,7 @@ function Controller() {
         hintText: "email",
         id: "email"
     });
-    $.__views.__alloyId3.add($.__views.email);
+    $.__views.__alloyId4.add($.__views.email);
     $.__views.status = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -159,7 +160,7 @@ function Controller() {
         textAlign: "center",
         id: "status"
     });
-    $.__views.__alloyId3.add($.__views.status);
+    $.__views.__alloyId4.add($.__views.status);
     $.__views.registerButton = Ti.UI.createButton({
         height: 28,
         color: "#aaa",

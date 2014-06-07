@@ -1,5 +1,6 @@
 <Alloy>
 	<TabGroup id="maintabgroup">
 		<Require src="registration" />
+	<Require src="get_node" />
 	</TabGroup>
 </Alloy>

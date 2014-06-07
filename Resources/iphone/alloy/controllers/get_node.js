@@ -2,11 +2,13 @@ function Controller() {
     function getaNode() {
         var resourceName = "node/2";
         var root = "http://drupal2-testdrupal.rhcloud.com/";
-        drupal.getResource(resourceName, function(response) {
-            var imageurl = root + "sites/default/files/public/field/image/" + response.field_image2.und[0].filename;
-            Ti.API.info(response.field_image2.und[0].filename);
+        drupal.getNode(resourceName, function(response) {
             Ti.API.info(response);
+            var imageurl = root + "sites/default/files/field/image/" + response.field_image2.und[0].filename;
+            Ti.API.info(imageurl);
+            Ti.API.info(response.field_image2.und[0].filename);
             $.node_title_id.setText(response.title);
+            $.node_body_id.setText(response.body.und[0].value);
             $.article1image.setImage(imageurl);
         }, function(error) {
             alert(error + "There was an error with getting the node");
@@ -56,19 +58,6 @@ function Controller() {
         id: "node_body_id"
     });
     $.__views.get_nodeWindow.add($.__views.node_body_id);
-    $.__views.__alloyId0 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "green",
-        font: {
-            fontSize: 20,
-            fontFamily: "Helvetica Neue"
-        },
-        textAlign: "center",
-        text: "Post your comment",
-        id: "__alloyId0"
-    });
-    $.__views.get_nodeWindow.add($.__views.__alloyId0);
     $.__views.article1image = Ti.UI.createImageView({
         id: "article1image"
     });
@@ -88,7 +77,7 @@ function Controller() {
     $.__views.get_nodeWindow.add($.__views.commentfield);
     $.__views.submitComment = Ti.UI.createButton({
         height: 28,
-        color: "#fff",
+        color: "#aaa",
         backgroundColor: "#ddd",
         borderRadius: 5,
         borderWidth: 1,
@@ -96,11 +85,25 @@ function Controller() {
         backgroundDisabledColor: "#666",
         width: 200,
         bottom: 35,
-        title: "Load node",
+        title: "Submit comment",
         id: "submitComment"
     });
     $.__views.get_nodeWindow.add($.__views.submitComment);
-    getaNode ? $.__views.submitComment.addEventListener("click", getaNode) : __defers["$.__views.submitComment!click!getaNode"] = true;
+    $.__views.Load_node = Ti.UI.createButton({
+        height: 28,
+        color: "#aaa",
+        backgroundColor: "#ddd",
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "red",
+        backgroundDisabledColor: "#666",
+        width: 200,
+        bottom: 35,
+        title: "Get a node",
+        id: "Load_node"
+    });
+    $.__views.get_nodeWindow.add($.__views.Load_node);
+    getaNode ? $.__views.Load_node.addEventListener("click", getaNode) : __defers["$.__views.Load_node!click!getaNode"] = true;
     $.__views.get_nodeTab = Ti.UI.createTab({
         window: $.__views.get_nodeWindow,
         id: "get_nodeTab",
@@ -109,7 +112,7 @@ function Controller() {
     $.__views.get_nodeTab && $.addTopLevelView($.__views.get_nodeTab);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    __defers["$.__views.submitComment!click!getaNode"] && $.__views.submitComment.addEventListener("click", getaNode);
+    __defers["$.__views.Load_node!click!getaNode"] && $.__views.Load_node.addEventListener("click", getaNode);
     _.extend($, exports);
 }
 

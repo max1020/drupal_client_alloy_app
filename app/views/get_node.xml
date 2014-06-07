@@ -1,0 +1,12 @@
+<Alloy>
+	<Tab id="get_nodeTab" title="GET_NODE-TITLE">
+		<Window id="get_nodeWindow" title="GET NODE" class="get_node_window">
+				<Label class="nodetitle" id="node_title_id">node title</Label>
+				<Label class="nodebody" id="node_body_id"></Label>
+				<ImageView id="article1image" ></ImageView>
+				<TextField class="comment" id="commentfield"></TextField>
+				<Button id="submitComment">Submit comment</Button>
+			<Button id="Load_node" onClick="getaNode">Get a node</Button>
+		</Window>		
+	</Tab>
+</Alloy>

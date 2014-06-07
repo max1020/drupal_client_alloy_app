@@ -176,17 +176,17 @@ function logout(success, failure, headers) {
     }, failure, headers);
 }
 
-function getView(viewName, success, failure, headers) {
+function getView(viewName, args, success, failure, headers) {
     makeAuthenticatedRequest({
-        servicePath: "views/" + viewName + ".json",
+        servicePath: "views/" + viewName + ".json?" + encodeUrlString(args),
         httpMethod: "GET",
         contentType: "application/json"
     }, success, failure, headers);
 }
 
-function getResource(resourceName, success, failure, headers) {
+function getResource(resourceName, args, success, failure, headers) {
     makeAuthenticatedRequest({
-        servicePath: resourceName + ".json",
+        servicePath: resourceName + ".json?" + encodeUrlString(args),
         httpMethod: "GET"
     }, success, failure, headers);
 }
@@ -246,6 +246,17 @@ function encodeUrlString(args) {
         parts.push(i + "=" + encodeURIComponent(arg));
     }
     return parts.join("&");
+}
+
+function getNode(resourceName, success, failure, headers) {
+    makeAuthenticatedRequest({
+        servicePath: resourceName + ".json",
+        httpMethod: "GET"
+    }, function(response) {
+        success(response);
+    }, function(err) {
+        failure(err);
+    }, headers);
 }
 
 var Settings, createHTTPClient;
@@ -316,3 +327,5 @@ exports.createNode = createNode;
 exports.uploadFile = uploadFile;
 
 exports.getView = getView;
+
+exports.getNode = getNode;

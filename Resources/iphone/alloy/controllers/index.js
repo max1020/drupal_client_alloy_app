@@ -13,6 +13,12 @@ function Controller() {
     __alloyId0.push($.__views.__alloyId1.getViewEx({
         recurse: true
     }));
+    $.__views.__alloyId2 = Alloy.createController("get_node", {
+        id: "__alloyId2"
+    });
+    __alloyId0.push($.__views.__alloyId2.getViewEx({
+        recurse: true
+    }));
     $.__views.maintabgroup = Ti.UI.createTabGroup({
         tabs: __alloyId0,
         id: "maintabgroup"

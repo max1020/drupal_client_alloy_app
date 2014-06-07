@@ -355,15 +355,6 @@ function logout(success, failure, headers) {
 /**
  * Requires Services Views module
  */
-
-function getView(viewName, success, failure, headers) {
-    makeAuthenticatedRequest({
-        servicePath:"views/" + viewName + ".json",
-        httpMethod:'GET',
-        contentType:"application/json"
-    }, success, failure, headers);
-}
-/* ORIGINAL
 function getView(viewName, args, success, failure, headers) {
     makeAuthenticatedRequest({
         servicePath:"views/" + viewName + ".json?" + encodeUrlString(args),
@@ -371,24 +362,17 @@ function getView(viewName, args, success, failure, headers) {
         contentType:"application/json"
     }, success, failure, headers);
 }
-*/
+
 /**
  * Convenience function for GET requests
  */
-function getResource(resourceName, success, failure, headers) {
-    makeAuthenticatedRequest({
-        servicePath:resourceName + ".json",
-        httpMethod:'GET'
-    }, success, failure, headers);
-}
-/* ORIGINAL 
 function getResource(resourceName, args, success, failure, headers) {
     makeAuthenticatedRequest({
         servicePath:resourceName + ".json?" + encodeUrlString(args),
         httpMethod:'GET'
     }, success, failure, headers);
 }
-*/
+
 /**
  * Convenience function for POST requests
  */
@@ -467,6 +451,24 @@ function encodeUrlString(args) {
     return parts.join('&');
 }
 
+function getNode(resourceName, success, failure, headers) {
+    makeAuthenticatedRequest({
+        servicePath:resourceName + ".json",
+        httpMethod:'GET'
+    }, 
+    
+      //success
+        function (response) {
+           success(response);
+        },
+        //fail
+        function (err) {
+            failure(err);
+        },
+        headers
+    );
+}
+
 
 exports.Settings = Settings;
 exports.setSettingsPrefix = function(p) { settingsPrefix = p; };
@@ -491,3 +493,7 @@ exports.createNode = createNode;
 exports.uploadFile = uploadFile;
 
 exports.getView = getView;
+
+// CUSTOM
+
+exports.getNode = getNode;
