@@ -36,14 +36,14 @@ function setStatus(status) {
 
 function clickRegister() {
 	
-	if (!$.username.value || !$.password.value || !$.email.value) {
+	if (!$.username.value /*|| !$.password.value*/ || !$.email.value) {
 		alert("please provide a name, email and password");
 		return;
 	}
 	
 	var user = {
 		name: $.username.value,
-		pass: $.password.value,
+		//pass: $.password.value,
 		mail: $.email.value
 	};
 	
